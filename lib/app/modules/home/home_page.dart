@@ -53,49 +53,50 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 4,
                   mainAxisSpacing: 4,
-                  childAspectRatio: .5,
+                  childAspectRatio: .6,
                 ),
                 itemCount: list.length,
                 itemBuilder: (context, index) {
                   CharacterModel character = list[index];
-                  return SizedBox(
-                    width: 180,
-                    child: InkWell(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(3),
-                        topRight: Radius.circular(3),
-                      ),
-                      splashColor: Colors.red.withOpacity(.5),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Expanded(
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                color: Colors.white24,
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(3),
-                                  topRight: Radius.circular(3),
-                                ),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                      "${character.thumbnail.path}.${character.thumbnail.extension}"),
-                                  fit: BoxFit.cover,
-                                ),
+                  return InkWell(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(3),
+                      topRight: Radius.circular(3),
+                    ),
+                    splashColor: Colors.red.withOpacity(.5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: Ink(
+                            decoration: BoxDecoration(
+                              color: Colors.white24,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(3),
+                                topRight: Radius.circular(3),
+                              ),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    "${character.thumbnail.path}.${character.thumbnail.extension}"),
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 5),
-                            height: 70,
-                            decoration: const BoxDecoration(
-                              color: Colors.white10,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(3),
-                                bottomRight: Radius.circular(3),
-                              ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 5,
+                          ),
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            color: Colors.white10,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(3),
+                              bottomRight: Radius.circular(3),
                             ),
+                          ),
+                          child: Center(
                             child: Text(
                               character.name,
                               style: const TextStyle(
@@ -103,14 +104,15 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                                 fontWeight: FontWeight.bold,
                               ),
                               softWrap: true,
-                              maxLines: 3,
+                              maxLines: 2,
+                              textAlign: TextAlign.center,
                               overflow: TextOverflow.ellipsis,
                             ),
-                          )
-                        ],
-                      ),
-                      onTap: () {},
+                          ),
+                        )
+                      ],
                     ),
+                    onTap: () {},
                   );
                 },
               );
